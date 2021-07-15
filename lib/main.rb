@@ -1,4 +1,4 @@
-require_relative 'mastermind'
+require_relative 'game'
 
 # start game
 board = Board.new
