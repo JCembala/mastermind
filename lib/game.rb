@@ -12,6 +12,8 @@ class Game
   def play
     generate_code
     print @code
+    puts
+    print_game_instruction
     ROUNDS_NUMBER.times do |turn|
       ask_player_for_input(turn)
       @player_guess = gets.chomp
@@ -44,4 +46,16 @@ class Game
   def print_code_creator_win_message
     puts 'That was last try. Code creator won!'
   end
+
+  def print_game_instruction
+    puts 'Welcome to Mastermind!'
+    puts 'The game is all about breaking 4 digit code'
+    puts 'The code is 4 digit from 1 to 6 which can repeat up to 4 times in one code'
+    puts 'Code examples: 1111 2233 1234 6421 6666'
+    puts 'You will have to guess code in 12 rounds or less to win'
+    puts 'After each round you will get some clues'
+    puts 'X - means you guessed 1 digit on right place'
+    puts 'O - means you guessed 1 digit on wrong place'
+  end
+
 end
