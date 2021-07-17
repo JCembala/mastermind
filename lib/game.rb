@@ -6,19 +6,19 @@ class Game
   def initialize(board)
     @board = board
     @code = []
-    @player_guess = 0
+    @player_guess = ''
   end
 
   def play
-    generate_code
-    print @code
-    puts
-    print_game_instruction
+    game_setup
     ROUNDS_NUMBER.times do |turn|
       ask_player_for_input(turn)
       @player_guess = gets.chomp
+      @board.add_code(@player_guess)
 
       break if game_over?
+
+      @board.print_board
     end
 
     game_over? ? print_code_breaker_win_message : print_code_creator_win_message
@@ -60,4 +60,11 @@ class Game
     puts
   end
 
+  private
+
+  def game_setup
+    generate_code
+    print @code
+    print_game_instruction
+  end
 end
