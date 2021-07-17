@@ -1,7 +1,10 @@
 class Board
 
+  attr_accessor :code
+
   def initialize
     @board = []
+    @code = ''
   end
 
   def print_board
@@ -12,19 +15,17 @@ class Board
       code.split('').each do |digit|
         print "#{digit} "
       end
-      print_indications
+      print_clues
       puts
     end
     puts '-----------------'
   end
 
-  def add_code(code)
-    @board.push(code)
-  end
-
+  def add_guess(guess)
+    @board.push(guess)
   private
 
-  def print_indications(indications_array = '| X X X X')
-    print indications_array
+  def print_clues(clues_array = '| X X X X')
+    print clues_array
   end
 end

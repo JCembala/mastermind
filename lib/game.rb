@@ -14,7 +14,7 @@ class Game
     ROUNDS_NUMBER.times do |turn|
       ask_player_for_input(turn)
       @player_guess = gets.chomp
-      @board.add_code(@player_guess)
+      @board.add_guess(@player_guess)
 
       break if game_over?
 
@@ -64,6 +64,7 @@ class Game
 
   def game_setup
     generate_code
+    @board.code = @code
     print @code
     print_game_instruction
   end
