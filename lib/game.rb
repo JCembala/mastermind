@@ -48,6 +48,7 @@ class Game
   end
 
   def print_game_instruction
+    puts
     puts 'Welcome to Mastermind!'
     puts 'The game is all about breaking 4 digit code'
     puts 'The code is 4 digit from 1 to 6 which can repeat up to 4 times in one code'
@@ -56,6 +57,7 @@ class Game
     puts 'After each round you will get some clues'
     puts 'X - means you guessed 1 digit on right place'
     puts 'O - means you guessed 1 digit on wrong place'
+    puts
   end
 
 end
