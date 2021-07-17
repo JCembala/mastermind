@@ -18,8 +18,8 @@ class Board
     puts '-----------------'
   end
 
-  def add_guess(row)
-    @board.push(row)
+  def add_code(code)
+    @board.push(code)
   end
 
   def print_indications(indications_array = '| X X X X')
