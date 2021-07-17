@@ -22,6 +22,8 @@ class Board
     @board.push(code)
   end
 
+  private
+
   def print_indications(indications_array = '| X X X X')
     print indications_array
   end

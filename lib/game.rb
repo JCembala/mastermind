@@ -24,6 +24,8 @@ class Game
     game_over? ? print_code_breaker_win_message : print_code_creator_win_message
   end
 
+  private
+
   def ask_player_for_input(turn)
     puts "Round #{turn + 1} what is your guess?"
   end
@@ -59,8 +61,6 @@ class Game
     puts 'O - means you guessed 1 digit on wrong place'
     puts
   end
-
-  private
 
   def game_setup
     generate_code
