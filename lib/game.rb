@@ -14,7 +14,7 @@ class Game
     ROUNDS_NUMBER.times do |turn|
       ask_player_for_input(turn)
       @player_guess = gets.chomp
-      @board.add_guess(@player_guess)
+      @board.add_guess(@player_guess.split(//))
 
       break if game_over?
 
