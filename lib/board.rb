@@ -13,7 +13,7 @@ class Board
 
     process_clues
     puts '-----------------'
-    print_codes
+    print_line
     puts '-----------------'
   end
 
@@ -24,7 +24,7 @@ class Board
 
   private
 
-  def print_codes
+  def print_line
     @codes.each_with_index do |code, index|
       code.each do |digit|
         print "#{digit} "
@@ -44,6 +44,7 @@ class Board
   def process_clues
     exact_match
     right_digit_match
+    remove_left_digits
     @clues.push(@guess_copy)
   end
 
@@ -57,9 +58,13 @@ class Board
 
   def right_digit_match
     @guess_copy.each_with_index do |item, index|
-      next unless item.to_s != 'X' && @code.include?(item.to_s)
+      next unless item.to_s != 'X' && @code.to_s.include?(item.to_s)
 
       @guess_copy[index] = 'O'
     end
+  end
+
+  def remove_left_digits
+    @guess_copy.delete_if { |item| item.to_s != 'X' && item.to_s != 'O' }
   end
 end
