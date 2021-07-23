@@ -5,6 +5,7 @@ class Board
     @codes = []
     @clues = []
     @code = []
+    @code_clone = []
     @guess_copy = []
   end
 
@@ -49,18 +50,21 @@ class Board
   end
 
   def exact_match
+    @code_clone = @code.clone
     @guess_copy.each_with_index do |item, index|
-      next unless item.to_s == @code[index].to_s
+      next unless item.to_s == @code_clone[index].to_s
 
       @guess_copy[index] = 'X'
+      @code_clone[index] = '?'
     end
   end
 
   def right_digit_match
     @guess_copy.each_with_index do |item, index|
-      next unless item.to_s != 'X' && @code.to_s.include?(item.to_s)
+      next unless item.to_s != 'X' && @code_clone.to_s.include?(item.to_s)
 
       @guess_copy[index] = 'O'
+      @code_clone[index] = '?'
     end
   end
 
