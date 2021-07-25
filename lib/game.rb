@@ -1,7 +1,7 @@
 require_relative 'board'
 
 class Game
-  ROUNDS_NUMBER = 3
+  ROUNDS_NUMBER = 12
 
   def initialize(board)
     @board = board
@@ -65,7 +65,6 @@ class Game
   def game_setup
     generate_code
     @board.code = @code
-    print @code
     print_game_instruction
   end
 end
